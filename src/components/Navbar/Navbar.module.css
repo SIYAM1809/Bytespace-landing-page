@@ -1,0 +1,180 @@
+/* ── Navbar ── */
+/* Figma Header_Frame: width 1440px, height 120px */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--blue-primary);          /* #003BE2 — always on blue hero */
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  height: 120px;
+  gap: 32px;
+}
+
+/* ── Logo ── */
+/* Figma: Header_Logo — Clash Display 700 24px, color #F5F5F6, icon #D4FB20 */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 30px;
+  color: var(--gray-50);                    /* #F5F5F6 */
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.logo svg { flex-shrink: 0; }
+
+/* ── Nav Links ── */
+/* Figma: Satoshi, 16px — Home active=500, others=400, color #F5F5F6 */
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex: 1;
+  justify-content: center;
+}
+
+.navLinks a {
+  font-family: var(--font);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 160%;
+  color: var(--gray-50);                    /* #F5F5F6 */
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.navLinks a:hover { opacity: 0.8; }
+
+/* Active link = Label M = font-weight 500 */
+.navLinks a.active {
+  font-weight: 500;
+}
+
+/* ── Auth Group ── */
+/* Figma: Sign In + Join Us = Satoshi 400 16px #F5F5F6, cart icon #F5F5F6 */
+.authGroup {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-left: auto;
+}
+
+.signIn {
+  font-family: var(--font);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--gray-50);                    /* #F5F5F6 */
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.signIn:hover { opacity: 0.8; }
+
+/* "Join Us" — same style as Sign In per Figma */
+.joinBtn {
+  font-family: var(--font);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--gray-50);                    /* #F5F5F6 */
+  text-decoration: none;
+  transition: opacity 0.2s;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.joinBtn:hover { opacity: 0.8; }
+
+/* Cart icon */
+.cartBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: none;
+  color: var(--gray-50);                    /* #F5F5F6 */
+  transition: opacity 0.2s;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.cartBtn:hover { opacity: 0.8; }
+
+/* ── Hamburger (mobile) ── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  padding: 4px;
+  margin-left: auto;
+  border: none;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--gray-50);
+  border-radius: 2px;
+  transition: transform 0.2s;
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .inner { height: 72px; }
+  .hamburger { display: flex; }
+
+  .navLinks {
+    display: none;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: var(--blue-primary);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    box-shadow: var(--shadow-md);
+    gap: 16px;
+    justify-content: flex-start;
+  }
+
+  .navLinks.open { display: flex; }
+
+  .authGroup {
+    display: none;
+    position: absolute;
+    top: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px 24px 16px;
+    gap: 8px;
+  }
+
+  .authGroup.open {
+    display: flex;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: var(--blue-primary);
+  }
+
+  .inner { flex-wrap: wrap; position: relative; }
+}

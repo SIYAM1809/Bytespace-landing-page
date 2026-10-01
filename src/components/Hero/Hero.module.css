@@ -1,0 +1,360 @@
+.hero {
+  position: relative;
+  background: var(--blue-primary);
+  min-height: 1024px;
+  height: 1024px;
+  overflow: hidden;
+  padding: 60px 0 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Grid dots overlay */
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+}
+
+/* ── Decorative shapes ── */
+.shape {
+  position: absolute;
+  pointer-events: none;
+}
+
+.shapeLimeTopLeft {
+  width: 90px;
+  height: 70px;
+  background: var(--lime);
+  border-radius: 50% 20% 60% 30%;
+  top: 30px;
+  left: 40px;
+  transform: rotate(-20deg);
+  opacity: 0.9;
+}
+
+.shapeLimeTopRight {
+  width: 80px;
+  height: 60px;
+  background: var(--lime);
+  border-radius: 40% 60% 30% 70%;
+  top: 20px;
+  right: 60px;
+  transform: rotate(15deg);
+}
+
+.shapeCircleLeft {
+  width: 80px;
+  height: 80px;
+  border: 10px solid rgba(255,255,255,0.6);
+  border-radius: 50%;
+  bottom: 120px;
+  left: 50px;
+}
+
+.shapeTriangleRight {
+  width: 0;
+  height: 0;
+  border-left: 28px solid transparent;
+  border-right: 28px solid transparent;
+  border-bottom: 50px solid rgba(255,255,255,0.7);
+  top: 140px;
+  right: 100px;
+}
+
+.shapeSquiggleBottomLeft {
+  width: 60px;
+  height: 40px;
+  background: rgba(255,255,255,0.5);
+  border-radius: 50%;
+  bottom: 60px;
+  left: 140px;
+  transform: rotate(30deg) scaleX(2);
+}
+
+.shapeSquiggleBottomRight {
+  width: 50px;
+  height: 35px;
+  background: rgba(255,255,255,0.5);
+  border-radius: 50%;
+  bottom: 100px;
+  right: 80px;
+  transform: rotate(-20deg) scaleX(1.8);
+}
+
+/* ── Content ── */
+.content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+}
+
+/* Headline */
+.headlineWrap {
+  border: 2px solid var(--pink-accent);
+  border-radius: var(--radius-md);
+  padding: 28px 40px 20px;
+  margin-bottom: 24px;
+  max-width: 640px;
+  width: 100%;
+}
+
+.headline {
+  font-size: clamp(32px, 5vw, 54px);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+.highlight {
+  background: var(--lime);
+  color: var(--gray-900);
+  padding: 0 8px;
+  border-radius: 4px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: rgba(255,255,255,0.75);
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* Search Bar */
+.searchBar {
+  display: flex;
+  align-items: center;
+  background: var(--white);
+  border-radius: var(--radius-full);
+  padding: 6px 6px 6px 16px;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: var(--shadow-lg);
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.searchIcon {
+  color: var(--gray-400);
+  flex-shrink: 0;
+}
+
+.searchInput {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  font-family: var(--font);
+  color: var(--gray-700);
+  background: transparent;
+}
+
+.searchInput::placeholder { color: var(--gray-400); }
+
+.searchBtn {
+  background: var(--blue-primary);
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 20px;
+  border-radius: var(--radius-full);
+  transition: background 0.2s, transform 0.15s;
+  white-space: nowrap;
+}
+
+.searchBtn:hover {
+  background: var(--blue-dark);
+  transform: scale(1.03);
+}
+
+/* Bottom area */
+.bottomArea {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  height: 440px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin-top: auto;
+}
+
+/* Student image */
+.imageWrap {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.greenCircle {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 380px;
+  height: 320px;
+  background: var(--lime);
+  border-radius: 60% 60% 0 0;
+}
+
+.studentImg {
+  position: relative;
+  z-index: 1;
+  height: 400px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 24px rgba(0,0,0,0.3));
+}
+
+/* Float cards */
+.floatCard {
+  position: absolute;
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  box-shadow: var(--shadow-lg);
+  animation: floatUp 3s ease-in-out infinite;
+}
+
+.cardUiux {
+  left: 0;
+  top: 40px;
+  min-width: 190px;
+  animation-delay: 0s;
+}
+
+.cardProgress {
+  right: 0;
+  top: 30px;
+  min-width: 170px;
+  animation-delay: 0.8s;
+}
+
+.cardStudents {
+  left: 20px;
+  bottom: 40px;
+  min-width: 200px;
+  animation-delay: 1.4s;
+}
+
+.cardLabel {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gray-700);
+  margin-bottom: 4px;
+}
+
+.cardMeta {
+  font-size: 11px;
+  color: var(--gray-400);
+}
+
+.progressPercent {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--gray-900);
+  line-height: 1.2;
+}
+
+.progressBarTrack {
+  width: 100%;
+  height: 5px;
+  background: var(--gray-200);
+  border-radius: var(--radius-full);
+  margin-top: 6px;
+  overflow: hidden;
+}
+
+.progressBarFill {
+  width: 55%;
+  height: 100%;
+  background: var(--blue-primary);
+  border-radius: var(--radius-full);
+}
+
+/* Happy Students */
+.studentsRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.avatarGroup {
+  display: flex;
+}
+
+.avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid white;
+  margin-left: -8px;
+}
+
+.avatar:first-child { margin-left: 0; }
+
+.studentCount {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--gray-700);
+  background: var(--lime);
+  padding: 2px 7px;
+  border-radius: var(--radius-full);
+}
+
+.studentsLabel {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.studentsTitle {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gray-700);
+}
+
+.studentsRating {
+  font-size: 11px;
+  color: var(--gray-400);
+}
+
+/* Float animation */
+@keyframes floatUp {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hero { padding: 40px 0 0; min-height: auto; }
+
+  .headlineWrap { padding: 20px 20px 16px; }
+
+  .bottomArea {
+    height: 260px;
+    max-width: 100%;
+  }
+
+  .studentImg { height: 230px; }
+
+  .greenCircle {
+    width: 240px;
+    height: 200px;
+  }
+
+  .cardUiux, .cardStudents { display: none; }
+  .cardProgress { right: 8px; top: 10px; }
+}

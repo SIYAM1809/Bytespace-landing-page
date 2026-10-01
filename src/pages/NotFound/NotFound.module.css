@@ -1,0 +1,214 @@
+/* ── 404 Not Found Page ── */
+/* Figma: width 1440px, height 1485px, background #FFFFFF */
+/* Blue section (Frame): height 957px, background #003BE2 */
+
+.page {
+  position: relative;
+  background: var(--white);
+  min-height: 100vh;
+}
+
+/* ── Blue hero section ── */
+/* Figma: position absolute, width 1440px, height 957px, left 0, top 0 */
+.heroSection {
+  position: relative;
+  width: 100%;
+  height: 957px;
+  background: var(--blue-primary);         /* #003BE2 */
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* ── Grid overlay (lines) ── */
+/* Figma: Group 3 + Group 4, opacity 0.12 */
+/* Vertical lines every 120px, horizontal lines every 120px */
+.grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.12;
+  pointer-events: none;
+  background-image:
+    /* vertical lines */
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 118px,
+      rgba(255,255,255,1) 118px,
+      rgba(255,255,255,1) 120px
+    ),
+    /* horizontal lines */
+    repeating-linear-gradient(
+      180deg,
+      transparent,
+      transparent 118px,
+      rgba(255,255,255,1) 118px,
+      rgba(255,255,255,1) 120px
+    );
+}
+
+/* ── Giant "404" text ── */
+/* Figma: Poppins 600, 480px, top 160px, centered */
+/* Gradient: #D4FB20 → transparent (top to bottom) */
+.bigNum {
+  position: absolute;
+  top: 160px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 920px;
+  text-align: center;
+
+  font-family: var(--font-heading);        /* Poppins */
+  font-style: normal;
+  font-weight: 600;
+  font-size: 480px;
+  line-height: 100%;
+  letter-spacing: -0.01em;
+
+  /* Figma gradient: Electric Lime fading to transparent */
+  background: linear-gradient(
+    180deg,
+    #D4FB20 0%,
+    rgba(212, 251, 32, 0.96) 25%,
+    rgba(212, 251, 32, 0.81) 50.5%,
+    rgba(212, 251, 32, 0.61) 68%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  user-select: none;
+  animation: fadeIn 0.6s ease both;
+}
+
+/* ── Content block (Frame 1) ── */
+/* Figma: flex-col center, gap 32px, width 935px, top 521px */
+.content {
+  position: absolute;
+  top: 521px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 935px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  z-index: 2;
+  text-align: center;
+}
+
+/* ── Headline ── */
+/* Figma: Poppins 600, 72px, line-height 120%, letter-spacing -0.01em, #FFFFFF */
+.headline {
+  font-family: var(--font-heading);        /* Poppins */
+  font-style: normal;
+  font-weight: 600;
+  font-size: 72px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  width: 935px;
+  animation: fadeSlideUp 0.6s 0.1s ease both;
+}
+
+/* ── Subtext ── */
+/* Figma: Satoshi 400, 18px, line-height 160%, color #E5E6E8 (Shuttle Gray/100) */
+.subtext {
+  font-family: var(--font);               /* Satoshi */
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.6;
+  text-align: center;
+  color: var(--gray-100);                 /* #E5E6E8 */
+  width: 486px;
+  animation: fadeSlideUp 0.6s 0.2s ease both;
+}
+
+/* ── Back to Home button ── */
+/* Figma: Electric Lime/400 #D4FB20, border-radius 24px, padding 12px 24px */
+/* Satoshi 500, 18px, color #242528 */
+.backBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  background: var(--electric-lime);       /* #D4FB20 */
+  color: var(--gray-950);                 /* #242528 */
+  font-family: var(--font);              /* Satoshi */
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.2;
+
+  padding: 12px 24px;
+  border-radius: var(--radius-full);      /* 24px */
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  width: 163px;
+  height: 46px;
+
+  transition: opacity 0.2s, transform 0.15s;
+  animation: fadeSlideUp 0.6s 0.3s ease both;
+}
+
+.backBtn:hover {
+  opacity: 0.88;
+  transform: translateY(-2px);
+}
+
+/* ── Animations ── */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(20px) translateX(-50%); }
+  to   { opacity: 1; transform: translateY(0)   translateX(-50%); }
+}
+
+/* Override translateX for non-absolute elements */
+.headline,
+.subtext,
+.backBtn {
+  /* These aren't absolutely positioned so no translateX needed */
+  animation: fadeSlideUpSimple 0.6s ease both;
+}
+
+.headline { animation-delay: 0.1s; }
+.subtext  { animation-delay: 0.2s; }
+.backBtn  { animation-delay: 0.3s; }
+
+@keyframes fadeSlideUpSimple {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .heroSection { height: 700px; }
+  .bigNum {
+    font-size: clamp(160px, 28vw, 380px);
+    top: 100px;
+    width: 90vw;
+  }
+  .content {
+    width: 90vw;
+    top: 400px;
+  }
+  .headline { font-size: clamp(32px, 6vw, 72px); width: 100%; }
+  .subtext  { width: 100%; font-size: 16px; }
+}
+
+@media (max-width: 600px) {
+  .heroSection { height: 600px; }
+  .bigNum { font-size: clamp(100px, 35vw, 200px); top: 80px; }
+  .content { top: 300px; gap: 20px; }
+  .headline { font-size: 32px; }
+  .backBtn { font-size: 16px; height: auto; width: auto; padding: 12px 28px; }
+}
