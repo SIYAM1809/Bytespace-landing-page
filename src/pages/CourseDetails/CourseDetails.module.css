@@ -1,0 +1,1087 @@
+/* ════════════════════════════════════════
+   COURSE DETAILS PAGE — Figma-matched CSS
+   ════════════════════════════════════════ */
+
+/* ── HERO (blue, 957px) ── */
+.hero {
+  position: relative;
+  background: var(--blue-primary);         /* #003BE2 */
+  overflow: hidden;
+  min-height: 957px;
+}
+
+/* Figma: Group 4 — line grid, opacity 0.12, every 120px */
+.heroGrid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.12;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 118px,
+      rgba(255,255,255,1) 118px,
+      rgba(255,255,255,1) 120px
+    ),
+    repeating-linear-gradient(
+      180deg,
+      transparent,
+      transparent 118px,
+      rgba(255,255,255,1) 118px,
+      rgba(255,255,255,1) 120px
+    );
+}
+
+/* Inner: left (769px) + right sidebar (412px) gap 392px */
+/* Figma: left 122px, width 1283px, height 185px for title block */
+.heroInner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 412px;
+  gap: 40px;
+  align-items: start;
+  padding-top: 172px;
+  padding-bottom: 40px;
+}
+
+/* LEFT: course info + video */
+.heroLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ── Title block ── */
+/* Figma: no border — info flows vertically, gap 24px */
+.titleBox {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.titleTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+/* Figma: Poppins 600, 36px, line-height 120%, letter-spacing -0.01em, #F5F5F6 */
+.courseTitle {
+  font-family: var(--font-heading);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--gray-50);                   /* #F5F5F6 */
+  margin-bottom: 8px;
+}
+
+/* Figma: Poppins 600, 20px, line-height 120%, letter-spacing -0.01em, #F5F5F6 */
+.courseSubtitle {
+  font-family: var(--font-heading);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--gray-50);                   /* #F5F5F6 */
+  margin-bottom: 8px;
+}
+
+/* Figma: Satoshi 500, 18px, line-height 120%, #F1F4FE (Vulcan/50) */
+.courseCreator {
+  font-family: var(--font);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.2;
+  color: var(--vulcan-50);                 /* #F1F4FE */
+}
+
+.creatorLink {
+  color: var(--vulcan-50);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.creatorLink:hover { opacity: 0.8; }
+
+/* ── Badges (Level, Rating, Students) ── */
+/* Figma: white bg, blur 20px, border-radius 24px, padding 8px 24px, #242528 text */
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--white);
+  backdrop-filter: blur(20px);
+  color: var(--gray-950);                  /* #242528 */
+  font-family: var(--font);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.2;
+  padding: 8px 24px;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+/* ── Share button ── */
+/* Figma: Electric Lime/400 #D4FB20, border-radius 24px, padding 8px 24px, Satoshi 500 16px #242528 */
+.shareBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--electric-lime);       /* #D4FB20 */
+  color: var(--gray-950);                 /* #242528 */
+  font-family: var(--font);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 8px 24px;
+  border-radius: var(--radius-full);
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: opacity 0.2s, transform 0.15s;
+}
+
+.shareBtn:hover { opacity: 0.88; transform: translateY(-1px); }
+
+/* ── Video wrap ── */
+/* Figma: 720×479px, border-radius 24px, bg #443131 */
+.videoWrap {
+  position: relative;
+  border-radius: var(--radius-xl);        /* 24px */
+  overflow: hidden;
+  background: #443131;
+  width: 100%;
+  aspect-ratio: 720 / 479;
+  max-width: 720px;
+}
+
+.videoThumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.videoOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.12);
+}
+
+/* Figma: 104×104 frosted square, border-radius 24px, border #4F4F4F, bg rgba(61,61,61,0.24) */
+.playBtn {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.playBtnInner {
+  width: 104px;
+  height: 104px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(61, 61, 61, 0.24);
+  border: 1px solid var(--black-700);     /* #4F4F4F */
+  backdrop-filter: blur(20px);
+  border-radius: var(--radius-xl);        /* 24px */
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.playBtn:hover .playBtnInner {
+  opacity: 0.88;
+  transform: scale(1.05);
+}
+
+/* Play icon: Electric Violet/50 #F5F2FF */
+.playBtnInner svg { color: #F5F2FF; }
+
+.videoPlaying {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* ══ RIGHT SIDEBAR ═══════════════════════
+   Figma: 412×959px, border 1px solid #CED0D3, border-radius 24px, padding 40px
+   ══════════════════════════════════════ */
+.sidebar {
+  background: var(--white);
+  border-radius: var(--radius-xl);         /* 24px */
+  border: 1px solid var(--gray-200);       /* #CED0D3 */
+  padding: 40px;
+  position: sticky;
+  top: 136px;                              /* below 120px navbar */
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-self: start;
+}
+
+/* Figma: Poppins 600, 20px, letter-spacing -0.01em, #242528 */
+.lessonCount {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--gray-950);
+}
+
+/* Lesson list */
+.lessonList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  list-style: none;
+}
+
+/* Figma: row — num (24px Satoshi 500 #242528) | title (Satoshi 500 16px) | dur (#003BE2) */
+.lessonItem {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.lessonNum {
+  font-family: var(--font);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.2;
+  color: var(--gray-950);                  /* #242528 */
+  flex-shrink: 0;
+  min-width: 24px;
+}
+
+.lessonTitle {
+  font-family: var(--font);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.2;
+  color: var(--gray-950);                  /* #242528 */
+  flex: 1;
+}
+
+/* Figma: Satoshi 400, 16px, line-height 160%, #003BE2 */
+.lessonDur {
+  font-family: var(--font);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--blue-primary);              /* #003BE2 */
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* "99 more videos" — Satoshi 400 16px #4B4C53 */
+.moreVideos {
+  font-family: var(--font);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--gray-700);                  /* #4B4C53 */
+  list-style: none;
+}
+
+/* Enrollment CTA — Satoshi 400, 16px, #4B4C53 */
+.enrollCta {
+  font-family: var(--font);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--gray-700);
+}
+
+/* Price row: $25 (Poppins 600 36px #003BE2) + /lifetime (Satoshi 400 16px #4B4C53) */
+.priceRow {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 0;
+}
+
+.price {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--blue-primary);             /* #003BE2 */
+}
+
+.pricePer {
+  font-family: var(--font);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--gray-700);
+  margin-bottom: 4px;
+  margin-left: 2px;
+}
+
+/* Enroll button — Electric Lime, full width, Satoshi 500 18px #242528, border-radius 24px */
+.enrollBtn {
+  width: 100%;
+  background: var(--electric-lime);       /* #D4FB20 */
+  color: var(--gray-950);                 /* #242528 */
+  font-family: var(--font);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.2;
+  padding: 12px 24px;
+  border-radius: var(--radius-full);
+  border: none;
+  cursor: pointer;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s, transform 0.15s;
+}
+
+.enrollBtn:hover { opacity: 0.9; transform: translateY(-1px); }
+
+/* Includes section */
+/* Figma: "This course include" = Poppins 600, 20px */
+.includesSection { display: flex; flex-direction: column; gap: 12px; }
+
+.includesTitle {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--gray-950);
+}
+
+/* Include items — icon + Satoshi 400 16px #4B4C53 */
+.includesList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  list-style: none;
+}
+
+.includesItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--gray-700);                  /* #4B4C53 */
+}
+
+.includesItem svg { color: var(--blue-primary); flex-shrink: 0; }
+
+/* Divider in sidebar — Black/200 #D1D1D1 */
+.sidebarDivider {
+  width: 100%;
+  height: 1px;
+  background: #D1D1D1;
+  flex-shrink: 0;
+}
+
+/* Creator card */
+/* Figma: avatar 52×52 circle, name Satoshi 500 18px #242528, role Satoshi 400 16px #4B4C53 */
+.creatorCard {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.creatorAvatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: var(--gray-200);
+}
+
+.creatorInfo { display: flex; flex-direction: column; }
+
+.creatorName {
+  font-family: var(--font);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.2;
+  color: var(--gray-950);                  /* #242528 */
+}
+
+.creatorRole {
+  font-family: var(--font);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--gray-700);                  /* #4B4C53 */
+}
+
+/* "See Full Profile" link — border #CED0D3, Satoshi 500 16px #4B4C53, radius 24px, padding 8px 16px */
+.profileLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--gray-200);       /* #CED0D3 */
+  color: var(--gray-700);                  /* #4B4C53 */
+  font-family: var(--font);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.2;
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s;
+  height: 35px;
+}
+
+.profileLink:hover {
+  border-color: var(--gray-700);
+  color: var(--gray-950);
+}
+
+/* ════════════════════════════════════
+   MAIN CONTENT (white section below hero)
+   ════════════════════════════════════ */
+.main {
+  background: var(--white);
+  padding: 0 0 80px;
+}
+
+.mainInner { max-width: 860px; }
+
+/* ── Tabs ── */
+/* Figma: pill buttons, inactive = #F5F5F6 bg, active = #D4FB20, Satoshi 500 16px #242528 */
+.tabsRow {
+  padding-top: 24px;
+  margin-bottom: 40px;
+  position: sticky;
+  top: 120px;
+  background: var(--white);
+  z-index: 10;
+  border-bottom: 1px solid var(--gray-200);
+  padding-bottom: 0;
+}
+
+.tabs {
+  display: flex;
+  gap: 16px;
+  padding-bottom: 24px;
+}
+
+.tab {
+  font-family: var(--font);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.2;
+  color: var(--gray-700);                  /* #4B4C53 */
+  padding: 12px 16px;
+  border-radius: var(--radius-full);
+  border: none;
+  background: var(--gray-50);             /* #F5F5F6 inactive */
+  cursor: pointer;
+  transition: all 0.2s;
+  height: 43px;
+  display: flex;
+  align-items: center;
+}
+
+.tab:hover { background: var(--gray-200); }
+
+.tabActive {
+  background: var(--electric-lime);       /* #D4FB20 */
+  color: var(--gray-950);                 /* #242528 */
+}
+
+/* Tab content */
+.tabContent { animation: fadeIn 0.2s ease; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Section titles — Poppins 600 20px #242528 */
+.sectionTitle {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--gray-950);
+  margin-bottom: 16px;
+}
+
+/* ── About tab ── */
+.descSection { margin-bottom: 36px; }
+
+/* Satoshi 400 16px #4B4C53 */
+.descPara {
+  font-family: var(--font);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--gray-700);
+  margin-bottom: 16px;
+}
+
+/* Sneak Peak */
+.sneakSection { margin-bottom: 36px; }
+
+/* Figma: flex row, justify-content: space-between, gap 40px */
+.sneakGrid {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  width: 100%;
+}
+
+/* Figma: 167×125px, border-radius 16px, #D9D9D9 bg */
+.sneakThumb {
+  width: 167px;
+  height: 125px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--gray-200);
+  flex-shrink: 0;
+}
+
+.sneakThumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.sneakThumb:hover img { transform: scale(1.05); }
+
+/* Key Points */
+.keySection { margin-bottom: 36px; }
+
+.keyList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  list-style: none;
+}
+
+.keyItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--gray-700);
+  line-height: 1.6;
+}
+
+/* Figma: Style=Filled check-circle, 24×24, fill #003BE2 */
+.keyCheck {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--blue-primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* ── Lessons tab ── */
+.modulesSection { margin-bottom: 36px; }
+
+.modulesSubtitle {
+  font-family: var(--font);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--gray-700);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.lessonListHeading {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--gray-950);
+  margin-bottom: 16px;
+}
+
+.moduleList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  list-style: none;
+}
+
+/* Figma: row gap 13px, no card padding — icon sits flush */
+.moduleItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  padding: 0;
+  border: none;
+  background: none;
+  transition: opacity 0.2s;
+}
+
+.moduleItem:hover { opacity: 0.85; }
+
+/* Figma: 72×72, border-radius 24px, padding 16px, Electric Lime #D4FB20 */
+.moduleIcon {
+  width: 72px;
+  height: 72px;
+  background: var(--electric-lime);
+  border-radius: var(--radius-xl);          /* 24px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 16px;
+}
+
+.moduleBody { flex: 1; }
+
+/* Figma: Satoshi 500, 16px, line-height 120%, #242528 */
+.moduleTitle {
+  font-family: var(--font);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--gray-950);
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+/* Figma: Satoshi 400, 16px, line-height 160%, #4B4C53 */
+.moduleDesc {
+  font-family: var(--font);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--gray-700);
+  line-height: 1.6;
+}
+
+.lessonContentSection {
+  margin-bottom: 32px;
+  padding: 20px;
+  background: var(--gray-50);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--gray-200);
+}
+
+.subsectionTitle {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--gray-950);
+  margin-bottom: 10px;
+}
+
+.progressSection { margin-bottom: 32px; }
+
+/* Figma: 723×116px, border #CED0D3, border-radius 16px, padding 16px, gap 8px */
+.progressCard {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 16px;
+  padding: 16px;
+  width: 100%;
+  max-width: 723px;
+  margin-top: 16px;
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Figma: Satoshi 500, 14px, line-height 120%, #242528 (Label S) */
+.progressCardLabel {
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gray-950);
+  line-height: 1.2;
+}
+
+/* Figma: Poppins 600, 36px, line-height 120%, letter-spacing -0.01em, #242528 */
+.progressCardPercent {
+  font-family: var(--font-heading);
+  font-size: 36px;
+  font-weight: 600;
+  color: var(--gray-950);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+/* Figma: track 691px wide (= 723 - 32px padding), height 8px, #E5E6E8 */
+/* Fill: 387px / 691px ≈ 56%, Electric Lime #D4FB20 */
+.progressCardTrack {
+  height: 8px;
+  background: var(--gray-100);            /* #E5E6E8 */
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  width: 100%;
+}
+
+.progressCardFill {
+  width: 56%;                             /* 387/691 ≈ 56% */
+  height: 100%;
+  background: var(--electric-lime);       /* #D4FB20 */
+  border-radius: var(--radius-full);
+}
+
+/* ════════════════════════════════════
+   REVIEWS TAB
+   Figma: "What Learners Are Saying"
+   ════════════════════════════════════ */
+
+/* "What Learners Are Saying" heading already handled by .sectionTitle */
+
+/* Description — Satoshi 400 16px #4B4C53 */
+.reviewsDesc {
+  font-family: var(--font);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--gray-700);
+  margin-bottom: 24px;
+  max-width: 723px;
+}
+
+/* ── Rating Summary card ── */
+/* Figma: white bg, border #CED0D3, border-radius 16px, padding 40px, gap 24px */
+.ratingOverview {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  gap: 24px;
+  background: var(--white);
+  border: 1px solid var(--gray-200);       /* #CED0D3 */
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  margin-bottom: 24px;
+  max-width: 723px;
+}
+
+/* Electric Lime square — 129×140px, padding 40px, border-radius 8px */
+.ratingScoreBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  min-width: 129px;
+  height: 140px;
+  background: var(--electric-lime);       /* #D4FB20 */
+  backdrop-filter: blur(20px);
+  border-radius: 8px;
+  flex-shrink: 0;
+  gap: 0;
+}
+
+/* "Ratings" label — Satoshi 500 14px #242528 */
+.ratingLabel {
+  font-family: var(--font);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.2;
+  color: var(--gray-950);
+}
+
+/* "4.7" — Poppins 600 36px #242528 */
+.ratingBig {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--gray-950);
+}
+
+/* Rating bars column */
+.ratingBars {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  flex: 1;
+}
+
+/* Each bar row — bar + stars + count */
+.ratingBarRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  height: 26px;
+}
+
+/* The progress bar track (282px, 8px, #E5E6E8) */
+.barTrack {
+  position: relative;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: var(--gray-100);            /* #E5E6E8 */
+  flex: 1;
+  max-width: 282px;
+  overflow: hidden;
+}
+
+/* Fill — Electric Lime/400 #D4FB20 */
+.barFill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: var(--electric-lime);      /* #D4FB20 */
+}
+
+/* Stars row (5 × 24px, color #4B4C53) */
+.starsRow {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  width: 136px;
+  flex-shrink: 0;
+}
+
+.starFilled {
+  color: var(--gray-700);                 /* #4B4C53 */
+  width: 24px;
+  height: 24px;
+}
+
+/* Count — Satoshi 400 16px #4B4C53 */
+.barCount {
+  font-family: var(--font);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--gray-700);
+  text-align: right;
+  min-width: 40px;
+}
+
+/* "Individual Reviews:" heading — Poppins 600 20px #242528 */
+.reviewsHeading {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--gray-950);
+  margin-bottom: 0;
+}
+
+/* Filter pills row */
+.ratingFilter {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+/* "All rating" — active pill = Electric Lime */
+.filterPill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 12px 16px;
+  border-radius: var(--radius-full);
+  background: var(--gray-50);             /* #F5F5F6 inactive */
+  border: none;
+  cursor: pointer;
+  font-family: var(--font);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.2;
+  color: var(--gray-700);
+  transition: all 0.2s;
+  height: 43px;
+}
+
+.filterPill:hover { background: var(--gray-200); }
+
+.filterPillActive {
+  background: var(--electric-lime);
+  color: var(--gray-950);
+}
+
+/* ── Individual Review Cards ── */
+/* Figma: border #CED0D3, border-radius 24px, padding 40px, gap 24px */
+.reviewsPlaceholder {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 723px;
+}
+
+.reviewCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 40px;
+  gap: 24px;
+  border: 1px solid var(--gray-200);      /* #CED0D3 */
+  border-radius: var(--radius-xl);        /* 24px */
+  background: var(--white);
+  transition: box-shadow 0.2s;
+}
+
+.reviewCard:hover { box-shadow: var(--shadow-sm); }
+
+/* Top row: left (avatar+name+stars) | right (date) */
+.reviewHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  width: 100%;
+}
+
+.reviewLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.reviewerRow {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+/* Avatar — 52×52 circle */
+.reviewAvatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font);
+  font-weight: 700;
+  font-size: 18px;
+  color: white;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.reviewAvatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.reviewerInfo { display: flex; flex-direction: column; }
+
+/* Satoshi 500, 18px, #242528 */
+.reviewName {
+  font-family: var(--font);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.2;
+  color: var(--gray-950);
+}
+
+/* Satoshi 400, 16px, #4B4C53 */
+.reviewRole {
+  font-family: var(--font);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--gray-700);
+}
+
+/* Stars — 5 × 24px, color #4B4C53 */
+.reviewStars {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  color: var(--gray-700);                 /* #4B4C53 */
+}
+
+.reviewStars svg { width: 24px; height: 24px; }
+
+/* Date — Satoshi 400 16px #4B4C53 */
+.reviewDate {
+  font-family: var(--font);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--gray-700);
+  white-space: nowrap;
+}
+
+/* Review text — Satoshi 400 16px #4B4C53 */
+.reviewText {
+  font-family: var(--font);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--gray-700);
+  width: 100%;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .heroInner {
+    grid-template-columns: 1fr;
+    padding-top: 100px;
+  }
+  .sidebar { position: static; }
+  .videoWrap { max-width: 100%; }
+  .sneakGrid { grid-template-columns: repeat(2, 1fr); }
+  .ratingOverview { flex-direction: column; align-items: stretch; }
+}
+
+@media (max-width: 600px) {
+  .heroInner { padding-top: 60px; }
+  .courseTitle { font-size: 24px; }
+  .badges { gap: 8px; }
+  .badge { font-size: 14px; padding: 6px 16px; }
+  .sneakGrid { grid-template-columns: repeat(2, 1fr); }
+  .reviewCard { padding: 24px; }
+  .ratingOverview { padding: 24px; }
+}

@@ -1,0 +1,230 @@
+/* Wrapper link */
+.cardLink {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ── Card container ── */
+/* Figma: width 373px, height 384px, border 1px solid #CED0D3, border-radius 24px */
+.card {
+  background: var(--white);
+  border-radius: var(--radius-xl);          /* 24px */
+  border: 1px solid var(--gray-200);        /* #CED0D3 */
+  overflow: hidden;
+  transition: transform 0.25s, box-shadow 0.25s;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ── Thumbnail ── */
+/* Figma: width 341px, height 195.14px, left 16px, top 16px, border-radius 12px */
+.thumbWrap {
+  margin: 16px 16px 0;
+  border-radius: var(--radius-md);          /* 12px */
+  overflow: hidden;
+  height: 195px;
+  background: #443131;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.thumbWrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.card:hover .thumbWrap img { transform: scale(1.05); }
+
+/* Figma: badges at bottom of image, frosted pill shape */
+.badges {
+  position: absolute;
+  bottom: 13px;
+  left: 13px;
+  right: 13px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  background: rgba(246, 246, 246, 0.6);
+  backdrop-filter: blur(4px);
+  color: var(--black-700);                  /* #4F4F4F */
+  font-size: 12px;
+  font-weight: 500;
+  font-family: var(--font);
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+/* ── Rating (top-right of image) ── */
+/* Figma: absolute, left 306px, top 232px — we adapt to card-relative */
+.ratingBadge {
+  position: absolute;
+  top: 228px;                               /* 232 - 4 (image offset) */
+  right: 16px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.ratingNum {
+  font-family: var(--font);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 160%;
+  color: var(--black-700);                  /* #4F4F4F */
+}
+
+.starIcon {
+  color: var(--gray-200);                   /* outlined star #CED0D3 */
+}
+
+/* ── Body ── */
+/* Figma: absolute left 16px, top 232px, width 237px, height 131px */
+.body {
+  padding: 16px 16px 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Title + creator group */
+.titleGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Figma: Poppins 600, 20px, line-height 120%, letter-spacing -0.01em, color #000000 */
+.title {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--black-950);                  /* #000000 */
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  margin-bottom: 0;
+}
+
+/* Figma: Satoshi 400, 12px, line-height 160%, color #4F4F4F */
+.creator {
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--black-700);                  /* #4F4F4F */
+}
+
+.creatorLink {
+  color: var(--black-700);
+}
+
+/* ── Meta row: Level badge + avatars ── */
+.meta {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Figma: bg #F5F5F6, border-radius 24px, padding 6px 12px, gap 4px */
+.levelBadge {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 6px 12px;
+  gap: 4px;
+  background: var(--gray-50);               /* #F5F5F6 */
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+/* Figma: Satoshi 500, 12px, #4B4C53 */
+.levelText {
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--gray-700);                   /* #4B4C53 */
+}
+
+/* Avatar overlapping group */
+/* Figma: 4 × 32px circles with margin -8px, + lime bubble for count */
+.avatarGroup {
+  display: flex;
+  align-items: flex-start;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid var(--white);
+  margin-left: -8px;
+  flex-shrink: 0;
+}
+
+.avatar:first-child { margin-left: 0; }
+
+/* Figma: Electric Lime/400 #D4FB20 bubble with "26+" text */
+.avatarCount {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--electric-lime);         /* #D4FB20 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--gray-950);                   /* #242528 */
+  margin-left: -8px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Footer row: price ── */
+.cardFooter {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  margin-top: auto;
+}
+
+/* Figma: Poppins 600, 20px, #003BE2 */
+.price {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--blue-primary);               /* #003BE2 */
+}
+
+/* Figma: Satoshi 400, 12px, line-height 160%, #4F4F4F */
+.pricePer {
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--black-700);                  /* #4F4F4F */
+  margin-left: 2px;
+  align-self: flex-end;
+  margin-bottom: 2px;
+}

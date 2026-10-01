@@ -1,0 +1,445 @@
+/* ════════════════════════════════════════
+   AUTH LAYOUT — Figma Spec Aligned
+   ════════════════════════════════════════ */
+
+.page {
+  position: relative;
+  min-height: 100vh;
+  background: var(--blue-primary);         /* #003BE2 */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+/* 120px Repeating Line Grid (12% opacity) */
+.lineGrid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.12;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 118px,
+      rgba(255, 255, 255, 1) 118px,
+      rgba(255, 255, 255, 1) 120px
+    ),
+    repeating-linear-gradient(
+      180deg,
+      transparent,
+      transparent 118px,
+      rgba(255, 255, 255, 1) 118px,
+      rgba(255, 255, 255, 1) 120px
+    );
+}
+
+/* 1440px Artboard Container */
+.container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1440px;
+  min-height: 1024px;
+  display: grid;
+  grid-template-columns: 1fr 579px;
+  gap: 40px;
+  padding: 40px 120px 60px 122px;
+  box-sizing: border-box;
+  align-items: start;
+}
+
+/* ── LEFT COLUMN ── */
+.left {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 900px;
+}
+
+/* Header Logo: top left */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  margin-bottom: 40px;
+  width: fit-content;
+}
+
+.logoText {
+  font-family: var(--font-display);        /* Clash Display */
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 30px;
+  color: var(--white);
+}
+
+/* Left Text block */
+.leftText {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 475px;
+  margin-bottom: 48px;
+}
+
+/* Heading XS: Poppins 600, 20px, line-height 120%, color #F5F5F6 */
+.leftHeading {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--gray-50);                   /* #F5F5F6 */
+  margin: 0;
+}
+
+/* Body L: Satoshi 400, 18px, line-height 160% (29px), color #F5F5F6 */
+.leftSub {
+  font-family: var(--font);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--gray-50);                   /* #F5F5F6 */
+  margin: 0;
+}
+
+/* ── MOCKUP AREA ── */
+.mockupArea {
+  position: relative;
+  width: 100%;
+  max-width: 580px;
+  height: 600px;
+  margin-top: auto;
+}
+
+/* Decorative 3D cone/ring accents */
+.coneLeft {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, rgba(212, 251, 32, 0.4), transparent 70%);
+  top: 10%;
+  left: -20px;
+  filter: blur(12px);
+  pointer-events: none;
+}
+
+.coneBottom {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 40%, rgba(212, 251, 32, 0.35), transparent 70%);
+  bottom: 5%;
+  left: 20px;
+  filter: blur(16px);
+  pointer-events: none;
+}
+
+.ringDecor {
+  position: absolute;
+  width: 175px;
+  height: 175px;
+  border-radius: 50%;
+  border: 14px solid rgba(245, 245, 246, 0.15);
+  bottom: 20%;
+  right: 10%;
+  pointer-events: none;
+  transform: rotate(-15deg);
+}
+
+/* Course Cards: width 373px, height 384px, border 1px solid #CED0D3, border-radius 24px */
+.courseCard {
+  box-sizing: border-box;
+  position: absolute;
+  width: 373px;
+  background: var(--white);
+  border: 1px solid var(--gray-200);       /* #CED0D3 */
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
+  transition: transform 0.3s;
+}
+
+/* Back Card (the Power of Big Data) */
+.backCard {
+  left: 110px;
+  top: 0px;
+  opacity: 0.9;
+  transform: scale(0.92);
+  z-index: 1;
+}
+
+/* Front Card (Build Digital Asset) */
+.frontCard {
+  left: 10px;
+  top: 90px;
+  z-index: 2;
+}
+
+.cardThumb {
+  position: relative;
+  width: calc(100% - 32px);
+  margin: 16px 16px 0;
+  height: 180px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #443131;
+}
+
+.thumbImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.thumbBadges {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.thumbBadges span {
+  background: rgba(246, 246, 246, 0.7);
+  backdrop-filter: blur(4px);
+  color: var(--black-700);
+  font-family: var(--font);
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 8px;
+  border-radius: 24px;
+  white-space: nowrap;
+}
+
+.cardBody {
+  padding: 14px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cardTitle {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--black-950);
+}
+
+.cardCreator {
+  font-family: var(--font);
+  font-size: 12px;
+  color: var(--black-700);
+}
+
+.cardMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.levelBadge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  background: var(--gray-50);
+  border-radius: var(--radius-full);
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--gray-700);
+}
+
+.avatarStack {
+  display: flex;
+  align-items: center;
+}
+
+.avatarImg {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid var(--white);
+  margin-left: -8px;
+  object-fit: cover;
+}
+
+.avatarImg:first-child {
+  margin-left: 0;
+}
+
+.avatarMore {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--black-950);
+  color: var(--white);
+  font-family: var(--font);
+  font-size: 10px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: -8px;
+}
+
+.cardBottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  border-top: 1px solid var(--gray-100);
+  padding-top: 8px;
+}
+
+.cardPrice {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--blue-primary);
+}
+
+.cardPrice span {
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--black-700);
+  margin-left: 2px;
+}
+
+.cardRating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font);
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--black-700);
+}
+
+/* Happy Students Floating Lime Card: 258×123px, #D4FB20, border-radius 16px */
+.happyCard {
+  box-sizing: border-box;
+  position: absolute;
+  width: 258px;
+  min-height: 123px;
+  left: 220px;
+  bottom: 30px;
+  background: var(--electric-lime);        /* #D4FB20 */
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 16px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  animation: floatCard 4s ease-in-out infinite;
+}
+
+@keyframes floatCard {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.happyTop {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.happyTitle {
+  font-family: var(--font);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--gray-950);                  /* #242528 */
+}
+
+.happyRatingRow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.happyScore {
+  font-family: var(--font);
+  font-weight: 700;
+  font-size: 11px;
+  color: var(--gray-950);
+}
+
+.happyAvatars {
+  display: flex;
+  align-items: center;
+}
+
+.happyAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid var(--electric-lime);
+  margin-left: -12px;
+  object-fit: cover;
+}
+
+.happyAvatar:first-child {
+  margin-left: 0;
+}
+
+.happyBadge2K {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--gray-950);             /* #242528 */
+  color: var(--gray-50);                   /* #F5F5F6 */
+  font-family: var(--font);
+  font-weight: 700;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: -12px;
+  border: 2px solid var(--electric-lime);
+}
+
+/* ── RIGHT COLUMN: FORM CARD ── */
+.right {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1200px) {
+  .container {
+    grid-template-columns: 1fr;
+    padding: 32px 24px;
+    gap: 32px;
+  }
+
+  .left {
+    min-height: auto;
+  }
+
+  .mockupArea {
+    display: none;
+  }
+
+  .right {
+    justify-content: center;
+  }
+}

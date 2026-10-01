@@ -1,0 +1,213 @@
+/* ── Footer ── */
+/* Figma: width 1440px, height 525px, background #FFFFFF, top border #CED0D3 */
+.footer {
+  background: var(--white);
+  color: var(--gray-950);                   /* #242528 */
+  padding: 71px 0 32px;
+  border-top: 1px solid var(--gray-200);    /* #CED0D3 */
+}
+
+/* Figma: Content column — gap 130px between nav and copyright */
+.top {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap: 92px;
+  padding-bottom: 130px;
+}
+
+/* ── Brand column ── */
+/* Figma: logo + tagline + newsletter + consent */
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Figma: Clash Display 700 24px, color #242528 */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 30px;
+  color: var(--gray-950);                   /* #242528 */
+  margin-bottom: 16px;
+  text-decoration: none;
+}
+
+/* Figma: Satoshi 400 14px line-height 160%, #242528 */
+.tagline {
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--gray-950);                   /* #242528 */
+  margin-bottom: 24px;
+  max-width: 528px;
+}
+
+/* Figma: input + subscribe in a row, then consent below */
+.newsletter {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 12px;
+  max-width: 504px;
+}
+
+/* Figma: border #CED0D3, border-radius 100px, padding 18px 24px */
+.emailInput {
+  flex: 1;
+  background: var(--white);
+  border: 1px solid var(--gray-200);        /* #CED0D3 */
+  border-radius: 100px;
+  padding: 18px 24px;
+  font-family: var(--font);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 160%;
+  color: var(--gray-950);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  height: 52px;
+}
+
+.emailInput::placeholder { color: var(--gray-950); opacity: 0.5; }
+
+.emailInput:focus {
+  border-color: var(--blue-primary);
+  box-shadow: 0 0 0 3px rgba(0, 59, 226, 0.1);
+}
+
+/* Figma: Electric Lime/400 #D4FB20, border-radius 24px, padding 12px 24px */
+.subscribeBtn {
+  background: var(--electric-lime);         /* #D4FB20 */
+  color: var(--gray-950);                   /* #242528 */
+  font-family: var(--font);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.2;
+  padding: 12px 24px;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+  border: none;
+  cursor: pointer;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  transition: opacity 0.2s, transform 0.15s;
+}
+
+.subscribeBtn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* Figma: Satoshi 400 12px line-height 160%, #242528 */
+.consent {
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--gray-950);
+  max-width: 504px;
+}
+
+/* ── Link groups ── */
+/* Figma: heading = Body M Satoshi 400 16px, links = Body S Satoshi 400 14px #242528 */
+.linkGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.groupHeading {
+  font-family: var(--font);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--gray-950);
+  margin: 0;
+}
+
+.linkGroup ul {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.link {
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--gray-950);                   /* #242528 */
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.link:hover { opacity: 0.7; }
+
+/* ── Bottom bar ── */
+/* Figma: Line then copyright row — Satoshi 400 12px #242528 */
+.bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: var(--gray-200);              /* #CED0D3 */
+}
+
+.bottomRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0;
+}
+
+.copy {
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--gray-950);                   /* #242528 */
+}
+
+.legal {
+  display: flex;
+  gap: 24px;
+}
+
+.legal a {
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--gray-950);                   /* #242528 */
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.legal a:hover { opacity: 0.7; }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .top { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .brand { grid-column: 1 / -1; }
+}
+
+@media (max-width: 600px) {
+  .top { grid-template-columns: 1fr; gap: 32px; }
+  .newsletter { flex-direction: column; align-items: stretch; gap: 12px; }
+  .bottomRow { flex-direction: column; gap: 16px; }
+  .legal { flex-wrap: wrap; gap: 14px; }
+}

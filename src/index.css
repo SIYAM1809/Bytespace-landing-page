@@ -1,0 +1,92 @@
+/* ===== RESET & BASE ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* ── Brand Colors ── */
+  --blue-primary: #003BE2;       /* Persian Blue/800 */
+  --persian-blue-800: #003BE2;
+  --blue-dark: #002db0;
+  --lime: #c8f000;               /* legacy lime (hero shapes) */
+  --lime-dark: #a8cc00;
+  --electric-lime: #D4FB20;      /* Electric Lime/400 – badges, CTAs, follow button */
+  --pink-accent: #ff2d9b;
+  --vulcan-50: #F1F4FE;          /* Vulcan/50 – creator byline on blue bg */
+
+  /* ── Neutral / Shuttle Gray ── */
+  --white: #ffffff;
+  --black-950: #000000;
+  --black-700: #4F4F4F;
+  --gray-50: #F5F5F6;            /* Shuttle Gray/50 */
+  --gray-100: #E5E6E8;           /* Shuttle Gray/100 */
+  --gray-200: #CED0D3;           /* Shuttle Gray/200 – borders */
+  --gray-400: #9aa0ab;
+  --gray-500: #6b7280;
+  --gray-700: #4B4C53;           /* Shuttle Gray/700 */
+  --gray-900: #111827;
+  --gray-950: #242528;           /* Shuttle Gray/950 – dark text */
+
+  /* ── Typography ── */
+  --font: 'Satoshi', 'Inter', sans-serif;
+  --font-heading: 'Poppins', sans-serif;
+  --font-display: 'Clash Display', sans-serif;
+
+  /* ── Shadows ── */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.12);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.16);
+
+  /* ── Radii ── */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;             /* Figma cards use 24px */
+  --radius-2xl: 28px;
+  --radius-full: 9999px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font);
+  color: var(--gray-900);
+  background: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img { display: block; max-width: 100%; }
+button { cursor: pointer; border: none; font-family: var(--font); }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* ===== UTILITY ===== */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section-tag {
+  display: inline-block;
+  background: var(--lime);
+  color: var(--gray-900);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  margin-bottom: 12px;
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--gray-100); }
+::-webkit-scrollbar-thumb { background: var(--blue-primary); border-radius: 3px; }
